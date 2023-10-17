@@ -1,18 +1,10 @@
 <?php 
-
-include("./conexion.php");
-
-
+(!empty($_POST["Login"])){
     $emailID=$_POST["EmailID"];
     $clave=$_POST["Clave"];
-    $sql=$mysqli ->query(" select * from Registro where EmailID=$emailID and Clave=$clave ");
+    $sql=$mysqli ->query(" SELECT * FROM Registro WHERE EmailID = ? AND Clave= ? ", [$emailID, $clave]);
+}
 
-    if ($mysqli -> execute()) {
-        echo '<div class="Success">Usuario logueado correctamente</div>';
-        header("Location: FrontHome.php")
-    } else {
-        echo '<div class="alerta">No se ha logueado</div>';
-    }
 
 
 ?>

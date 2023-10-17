@@ -142,10 +142,13 @@ h2{
         <img src="../imagenes/Icono Perfil Blanco.png" alt="perfil" class="perfil">
     </figure>
 </header>
-
+<?php
+include("modelo/index.php")
+include("modelo/Registro.php")
+?>
     <section>
-        <img src="fondo_pulmoAi_inicio.jpg" alt="fondo" class="fondo">  
-        <form action="Registro.php" method="post">
+        <img src="../imagenes/fondo_pulmoAi_inicio.jpg" alt="fondo" class="fondo">  
+        <form action="./Registro.php" method="post">
             <container>
                 <h1>Welcome</h1>
                 <h2>Please, register your account.</h2>
@@ -154,14 +157,10 @@ h2{
                 <input type ="email" name="EmailID" id = "EmailID" placeholder="Email" required>
                 <input type = "number" name="Obra_social" id = "Obra_social" placeholder="Medical assurance" required>
                 <input type = "text" name="Clave" id = "Clave" placeholder="  password" required>
-                <button class="b1"> <a href="FrontLogIn.php"> I already have an account </a></button> 
-                <button class="submit">Submit</button>
+                <button class="b1"> <a href="../pantalla_login/login.html"> I already have an account </a></button> 
+                <button class="submit"><a href="../pantalla_inicio/inicio.html">Submit</a></button>
             </container>
         </form>
     </section>
-    <?php
-// include("./conexion.php");
-// include("./Registro.php");
-?>
 </body>
 </html>
