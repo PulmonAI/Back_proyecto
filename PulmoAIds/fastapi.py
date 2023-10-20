@@ -1,20 +1,34 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import tensorflow as tf
-import pandas as pd
-from tensorflow import keras
-
-from fastapi import FastAPI
+#import tensorflow as tf
+#import pandas as pd
 
 app = FastAPI()
 
+$ uvicorn fastapi:app --reload
+$ uvicorn main:app --reload
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+class Item(BaseModel):
+    dato1: int
+    dato2: int
+    dato3: int
+    dato4: int
+    dato5: int
+    dato6: int
+    dato7: int
+    dato8: int
+    dato9: int
+    dato10: int
+    dato11: int
+    dato12: int
+  
 
 
-'''
+@app.get("/modelo_entrenado.h5")
+def root(modelo_entrenado.h5: Item):
+    return {modelo_entrenado.h5}
+
+''' 
 import uvicorn
 
 class App:
@@ -32,9 +46,6 @@ app = FastAPI()
 
 class InputData(BaseModel):
     input_text: str
-
-# Carga el modelo
-modelo = tf.keras.models.load_model('modelo/modelo_entrenado.h5')
 
 def preprocess(input_text):
     pass
