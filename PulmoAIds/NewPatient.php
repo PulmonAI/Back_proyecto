@@ -214,5 +214,13 @@ table{
             </container>
         </form>
 </section>
+<script>
+    let res = await fetch("http://localhost:8000/PulmoAIds")
+    let data = await res.json()
+    console.log(data)
+</script>
+<!-- $pythonScript = "C:\Users\47431890\Documents\GitHub\Back_proyecto\PulmoAIds\response.py";
+exec("python3 $pythonScript", $output, $returnCode); -->
+
 </body>
 </html>
