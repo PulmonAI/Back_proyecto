@@ -149,7 +149,7 @@ table{
 </header>
     <section>
         <img src="fondo_pulmoAi_inicio.jpg" alt="fondo" class="fondo">  
-        <form action="Paciente.php" method="post"> 
+        <form action="Paciente.php" method="post" onSubmit="sendRequest()"> 
             <container>
                 <input type="text" name="NombreYapellido" id="NombreYapellido" placeholder="NAME AND SURENAME" required>
                 <input type="text" name="Obrasocial" id="Obrasocial" placeholder="MEDICAL ASSURANCE" required>
@@ -159,54 +159,54 @@ table{
                 <table border="1">
                     <tr>
                         <td>FEV1 Pre-BD Value</td>
-                        <td><input type="text" name="FEV1(1)" id="input_tabla"  placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FEV1(1)" id="dato1" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td>FEV1 Pre-BD Pred</td>
-                        <td><input type="text" name="FEV1(2)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FEV1(2)" id="dato2" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td>FEV1 Post-BD Value</td>
-                        <td><input type="text" name="FEV1(3)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FEV1(3)" id="dato3" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td> FEV1 Post-BD Pred </td>
-                        <td><input type="text" name="FEV1(4)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FEV1(4)" id="dato4" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td> FVC Pre-BD Value</td>
-                        <td><input type="text" name="FVC(1)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FVC(1)" id="dato5" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td> FVC Pre-BD Pred</td>
-                        <td><input type="text" name="FVC(2)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FVC(2)" id="dato6" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td> FVC Post-BD Value</td>
-                        <td><input type="text" name="FVC(3)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FVC(3)" id="dato7" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td> FVC Post-BD Pred</td>
-                        <td><input type="text" name="FVC(4)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FVC(4)" id="dato8" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td> FEF Pre-BD Value</td>
-                        <td><input type="text" name="FEF(1)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FEF(1)" id="dato9" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td> FEF Pre-BD Pred</td>
-                        <td><input type="text" name="FEF(2)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FEF(2)" id="dato10" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td> FEF Post-BD Value</td>
-                        <td><input type="text" name="FEF(3)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FEF(3)" id="dato11" placeholder="Escribe aquí" required></td>
                     </tr>
                     <tr>
                         <td> FEF Post-BD Pred</td>
-                        <td><input type="text" name="FEF(4)" placeholder="Escribe aquí" required></td>
+                        <td><input type="text" name="FEF(4)" id="dato12" placeholder="Escribe aquí" required></td>
                     </tr>
                 </table>
-                <input type="submit" class="submit" value="Submit">
+                <input type="submit" class="submit" value="Submit" id="submit">
                 <br> </br>
                 <br> </br>
                 <br> </br>
@@ -215,12 +215,26 @@ table{
         </form>
 </section>
 <script>
-    let res = await fetch("http://localhost:8000/PulmoAIds")
-    let data = await res.json()
-    console.log(data)
+    const sendRequest = () => {
+        const dato1 = document.getElementById("dato1").value;
+        const dato2 = document.getElementById("dato2").value;
+        const dato3 = document.getElementById("dato3").value;
+        const dato4 = document.getElementById("dato4").value;
+        const dato5 = document.getElementById("dato5").value;
+        const dato6 = document.getElementById("dato6").value;
+        const dato7 = document.getElementById("dato7").value;
+        const dato8 = document.getElementById("dato8").value;
+        const dato9 = document.getElementById("dato9").value;
+        const dato10 = document.getElementById("dato10").value;
+        const dato11 = document.getElementById("dato11").value;
+        const dato12 = document.getElementById("dato12").value;
+        
+        let res = await fetch(`http://localhost:8000/PulmoAIds?dato1=${dato1}&dato2=${dato2}&dato3=${dato3}&dato4=${dato4}&dato5=${dato5}&dato6=${dato6}&dato7=${dato7}&dato8=${dato8}&dato9=${dato9}&dato10=${dato10}&dato11=${dato11}&dato12=${dato12}`);
+        let data = await res.json();
+        console.log(data);
+    }
+
 </script>
-<!-- $pythonScript = "C:\Users\47431890\Documents\GitHub\Back_proyecto\PulmoAIds\response.py";
-exec("python3 $pythonScript", $output, $returnCode); -->
 
 </body>
 </html>

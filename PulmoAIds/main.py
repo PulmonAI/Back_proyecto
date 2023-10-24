@@ -7,8 +7,6 @@ import joblib
 model_filename = "svm_model.h5"
 model = joblib.load(model_filename)
 
-print(model)
-
 app = FastAPI()
 
 @app.get("/PulmoAIds")
@@ -29,14 +27,12 @@ async def root(
 
     datos = np.array([[dato1, dato2, dato3, dato4, dato5, dato6, dato7, dato8, dato9, dato10, dato11, dato12]])
     print(datos)
-
+  
     res = model.predict(datos)
-    #proba = model.predict_proba(datos)
 
     print(res)
 
     return {
-            "prediction": str(res[0]),
-            #"proba" : proba
-          }
+      "prediction": str(res[0]),
+    }
 
