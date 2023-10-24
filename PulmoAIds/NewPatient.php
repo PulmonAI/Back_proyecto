@@ -206,7 +206,7 @@ table{
                         <td><input type="text" name="FEF(4)" id="dato12" placeholder="Escribe aquí" required></td>
                     </tr>
                 </table>
-                <input type="submit" class="submit" value="Submit" id="submit">
+                <input type="submit" class="submit" value="Submit" onClick={sendRequest} id="submit">
                 <br> </br>
                 <br> </br>
                 <br> </br>
@@ -215,6 +215,7 @@ table{
         </form>
 </section>
 <script>
+    
     const sendRequest = () => {
         const dato1 = document.getElementById("dato1").value;
         const dato2 = document.getElementById("dato2").value;
