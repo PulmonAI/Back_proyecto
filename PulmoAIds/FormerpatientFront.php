@@ -185,6 +185,22 @@ table{
 .subrayado{
     border-bottom: 1px solid#fbf7f7;
 }
+.input_feedback{
+    border: 2px solid white;
+    padding: 1px;
+    width: 50%;
+    height: 100%;
+}
+.feedback{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 10%;
+    magin-top: 10%;
+    font-size: 20px;
+}
+#input_medic{
+    margin-left: 45px;
+}
     </style>
 <header>
 <figure>
@@ -281,7 +297,16 @@ table{
                         <td><input type="number" placeholder="Escribe aquí" required></td>
                     </tr>
                 </table>
-                <button class="submit">Submit</button>
+                <div class="feedback" id= "diagnotico">
+                    <label class="diag">IA Diagnosis:</label>
+                    <input class = "input_feedback" type="text" required>
+                </div> 
+                </table>
+                <div class="feedback">
+                    <label class="medic">Medication:</label>
+                    <input class = "input_feedback" id="input_medic" placeholder = "Type here..." type ="text" required>
+                </div>    
+                <button class="submit">Update data</button>
                 <br> </br>
                 <br> </br>
                 <br> </br>
