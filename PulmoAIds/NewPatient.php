@@ -165,7 +165,7 @@ table{
 </header>
     <section>
         <img src="fondo_pulmoAi_inicio.jpg" alt="fondo" class="fondo">  
-        <form action="Paciente.php" method="post" onSubmit="sendRequest()"> 
+        <form onSubmit="return sendRequest(event)"> 
             <container>
                 <input type="text" name="NombreYapellido" id="NombreYapellido" placeholder="NAME AND SURENAME" required>
                 <input type="text" name="Obrasocial" id="Obrasocial" placeholder="MEDICAL ASSURANCE" required>
@@ -222,7 +222,7 @@ table{
                         <td><input type="text" name="FEF(4)" id="dato12" placeholder="Escribe aquí" required></td>
                     </tr>
                 </table>
-                <input type="submit" class="submit" value="Submit" onClick={sendRequest} id="submit">
+                <input type="submit" class="submit" value="Enviar" id="submit">
                 
                 <div class="feedback" id= "diagnotico">
                     <label class="diag">IA Diagnosis:</label>
@@ -242,7 +242,9 @@ table{
 </section>
 <script>
     
-    const sendRequest = () => {
+    const sendRequest = (e) => {
+        e.preventDefault();
+        alert("Hola");
         const dato1 = document.getElementById("dato1").value;
         const dato2 = document.getElementById("dato2").value;
         const dato3 = document.getElementById("dato3").value;
@@ -259,6 +261,8 @@ table{
         let res = await fetch(`http://localhost:8000/PulmoAIds?dato1=${dato1}&dato2=${dato2}&dato3=${dato3}&dato4=${dato4}&dato5=${dato5}&dato6=${dato6}&dato7=${dato7}&dato8=${dato8}&dato9=${dato9}&dato10=${dato10}&dato11=${dato11}&dato12=${dato12}`);
         let data = await res.json();
         console.log(data);
+
+        return false;
     }
 
 </script>
